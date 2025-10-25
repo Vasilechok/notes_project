@@ -1,12 +1,36 @@
-{% extends "base.html" %}
+
+
 {% block content %}
-  <h1>➕ Створення завдання</h1>
+<div class="task-container" style="
+    background: linear-gradient(135deg, #1e3c72, #2a5298); 
+    padding: 30px; 
+    border-radius: 15px; 
+    max-width: 600px; 
+    margin: 40px auto; 
+    color: #f0f0f0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+">
+    <h1 style="text-align:center; margin-bottom: 25px;">➕ Додати нову нотатку</h1>
 
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Зберегти</button>
-  </form>
+    <form method="post" style="display: flex; flex-direction: column; gap: 15px;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="
+            background-color: #00bfff; 
+            color: white; 
+            border: none; 
+            padding: 12px; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            cursor: pointer;
+            transition: background 0.3s;
+        " onmouseover="this.style.background='#009acd';" onmouseout="this.style.background='#00bfff';">
+            💾 Зберегти
+        </button>
+    </form>
 
-  <p><a href="{% url 'tasks:task_list' %}">← Назад до списку</a></p>
+    <div style="text-align:center; margin-top: 20px;">
+        <a href="{% url 'task_list' %}" style="color: #00bfff; text-decoration: none;">← Назад до списку</a>
+    </div>
+</div>
 {% endblock %}

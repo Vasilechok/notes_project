@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'notes',
+    'users',
 ]
+
+LOGIN_REDIRECT_URL = '/users/'  # або на будь-яку сторінку твоїх нотаток
+LOGOUT_REDIRECT_URL = '/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +60,7 @@ ROOT_URLCONF = 'notes_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

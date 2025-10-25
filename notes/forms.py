@@ -18,3 +18,8 @@ def create_note(request):
     else:
         form = NoteForm()
     return render(request, 'notes/create_note.html', {'form': form})
+
+
+class RegisterForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+    password_confirm = forms.CharField(widget=forms.PasswordInput, label="Підтвердження пароля")

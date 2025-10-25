@@ -1,0 +1,13 @@
+
+
+{% block content %}
+<div class="container" style="max-width: 400px; margin: 2rem auto; background-color: #1e3a8a; padding: 2rem; border-radius: 12px; color: #f3f4f6;">
+    <h2 style="color: #60a5fa;">🔑 Вхід</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="background-color: #2563eb; color: #f3f4f6; border-radius: 8px; padding: 0.5rem 1rem;">Увійти</button>
+    </form>
+    <p>Не маєте акаунту? <a href="{% url 'register' %}" style="color: #60a5fa;">Зареєструватися</a></p>
+</div>
+{% endblock %}

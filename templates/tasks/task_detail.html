@@ -1,17 +1,23 @@
-{% extends "base.html" %}
+
+
 {% block content %}
-  <h1>📝 Деталі завдання</h1>
+<div class="container" style="max-width: 700px; margin: 2rem auto; background-color: #1e3a8a; padding: 2rem; border-radius: 12px; color: #f3f4f6; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+    <h1 style="margin-bottom: 1rem; color: #60a5fa;">📄 {{ task.title }}</h1>
 
-  <h2>{{ task.title }}</h2>
-  <p><strong>Опис:</strong> {{ task.description|default:"(немає опису)" }}</p>
-  <p><strong>Створено:</strong> {{ task.created_at|date:"d.m.Y H:i" }}</p>
-  <p><strong>Оновлено:</strong> {{ task.updated_at|date:"d.m.Y H:i" }}</p>
+    <p><strong>Опис:</strong> {{ task.description|default:"(немає опису)" }}</p>
+    <p><strong>Створено:</strong> {{ task.created_at|date:"d.m.Y H:i" }}</p>
+    <p><strong>Оновлено:</strong> {{ task.updated_at|date:"d.m.Y H:i" }}</p>
 
-  {% if task.completed %}
-    <p style="color: green;"><strong>Статус:</strong> виконано ✅</p>
-  {% else %}
-    <p style="color: orange;"><strong>Статус:</strong> у процесі ⏳</p>
-  {% endif %}
+    {% if task.completed %}
+        <p style="color: #34d399;"><strong>Статус:</strong> виконано ✅</p>
+    {% else %}
+        <p style="color: #facc15;"><strong>Статус:</strong> у процесі ⏳</p>
+    {% endif %}
 
-  <p><a href="{% url 'tasks:task_list' %}">← Назад до списку</a></p>
+    <a href="{% url 'task_list' %}" 
+       style="display: inline-block; margin-top: 2rem; padding: 0.6rem 1.2rem; background-color: #2563eb; color: #f3f4f6; border-radius: 8px; text-decoration: none; transition: background-color 0.2s;">
+       ← Назад до списку
+    </a>
+</div>
 {% endblock %}
+
